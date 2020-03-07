@@ -5,7 +5,7 @@ CREATE TABLE items (
   menu_category VARCHAR(255),
   price INTEGER,
   popularity INTEGER,
-  start_time TIMESTAMP,
+  start_time NOW(),
   time_to_complete TIMESTAMP
 );
 
