@@ -9,6 +9,9 @@ body {
   color: $paragraph-color;
 }
 
+.header-main {
+}
+
 h1,
 h2,
 h3,
@@ -25,10 +28,8 @@ header {
   -webkit-box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
   -moz-box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
   box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
-}
-
-header .header-wrapper {
-  max-width: 1200px;
+  background-image: url("../img/header.png");
+  background-size: 100%;
 }
 
 h1 {
