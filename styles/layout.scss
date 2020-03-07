@@ -1,9 +1,45 @@
 // See: https://sass-lang.com/
 
-body {
-  background-color: #EEE;
+$primary-color: #181717;
+$heading-color: #dd3b3b;
+$paragraph-color: goldenrod;
 
-  h1 {
-    color: #244751;
-  }
+body {
+  background-color: $primary-color;
+  color: $paragraph-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading-color;
+}
+
+header {
+  width: 100%;
+  height: 20em;
+  padding: 0 10em 0 10em;
+  -webkit-box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
+  -moz-box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
+  box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
+}
+
+header .header-wrapper {
+  max-width: 1200px;
+}
+
+h1 {
+  color: goldenrod;
+}
+header .admin-btn {
+  position: absolute;
+  right: 60px;
+  top: 15px;
+  background-color: $heading-color;
+  color: $primary-color;
+  border: none;
+  padding: 15px 30px 15px 30px;
 }
