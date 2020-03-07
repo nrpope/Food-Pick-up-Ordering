@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS categories CASCADE;
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255),
+  order_id INTEGER,
+  item_id INTEGER,
+  quantity INTEGER,
+  PRICE INTEGER
+);
