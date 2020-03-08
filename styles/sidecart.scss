@@ -1,0 +1,24 @@
+#menu-category {
+  background: none;
+  border: none;
+  outline: none;
+  color: #cae5f7;
+  cursor: pointer;
+  animation-name: floating;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.menu {
+  height: 20vw;
+  width: 100vw;
+  z-index: 999;
+  background-color: white;
+  padding: 1.5em;
+  top: 0em;
+  position: sticky;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
