@@ -2,8 +2,23 @@ const { Pool } = require('pg')
 
 
 const pool = new Pool({
-  user: 'vagrant',
-  password: '123',
+  user: 'labber',
+  password: 'labber',
   host: 'localhost',
-  database: 'lightbnb'
+  database: 'midterm'
 });
+
+// Get all of the categories
+
+
+const getAllCategories = function() {
+  pool.query(`
+  SELECT * FROM categories
+  `)
+  .then(res => {
+    console.log('inside of promise')
+    console.log(res)
+  });
+}
+
+exports.getAllCategories = getAllCategories;
