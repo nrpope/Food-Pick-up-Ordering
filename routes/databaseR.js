@@ -13,8 +13,8 @@ module.exports = (db) => {
     db.query(`SELECT * FROM categories;`)
       .then(data => {
         //console.log('data.rows', data.rows);
-        // const categories = data.rows;
-        // res.json({ categories });
+        const categories = data.rows;
+        res.json({ categories });
         //console.log("res.json",  res.json({ users }));
         console.log(data);
       })
