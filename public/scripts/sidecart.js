@@ -8,4 +8,11 @@ $(document).ready(function() {
       $(".menu").toggle("slide");
     });
   });
+  $(".hotdogbtn").submit(function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: "POST",
+      url: "/"
+    }).then(() => {});
+  });
 });
