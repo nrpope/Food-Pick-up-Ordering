@@ -8,3 +8,17 @@ $(() => {
     }
   });;
 });
+
+
+// Experimental code to help with displaying database
+$(() => {
+  $.ajax({
+    method: "GET",
+    url: "/api/categories"
+  }).done((categories) => {
+    for(category of categories) {
+      $("<div>").text(category.name).appendTo($("body"));
+    }
+  });;
+});
+
