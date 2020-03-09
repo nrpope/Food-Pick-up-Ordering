@@ -26,14 +26,3 @@ $(() => {
 });
 
 // End of experimental code
-
-$(".button_cont").submit(function(event) {
-  event.preventDefault();
-  $.ajax({
-    method: "POST",
-    url: "/tweets",
-    data: data
-  }).then(() => {
-    // after POST request make GET request to render the new item
-  });
-});
