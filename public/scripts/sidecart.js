@@ -15,7 +15,7 @@ $(document).ready(function() {
     // alert("ready to add item" + item_id);
     $.ajax({
       method: "POST",
-      url: `/api/add_items/${item_id}`,
+      url: `/api/order/add/${item_id}`,
       success: () => {
         $.ajax({
           method: "GET",
