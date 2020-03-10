@@ -30,8 +30,34 @@ $(document).ready(function() {
         console.log("nothing bad happened yet");
       },
       error: () => {
-        console.log("shit shit");
+        console.log("POST to api/order/add failed");
       }
     });
   });
+
+  const loadOrders = function() {
+    //loads all tweets on page
+    $.ajax({
+      url: "/api/order",
+      method: "GET",
+      success: () => {
+        console.log("loadOrders worked");
+      },
+      error: () => {
+        console.log("loadOrders failed");
+      }
+    });
+  };
+
+  const newOrderForm = function(newOrder) {
+    //dynamic submission form
+    let $newOrder = $(`
+      <article class="order_tally">
+      <p class=${newOrder.orders.id}</p>
+      </article>
+    `).addClass("order_tally");
+    console.log("new order form");
+    return $newOrder;
+  };
+  loadOrders();
 });
