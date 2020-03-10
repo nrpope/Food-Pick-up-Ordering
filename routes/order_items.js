@@ -59,13 +59,13 @@ module.exports = (db) => {
 
     router.post("/remove/:item_id", (req, res) => {
     let order_id = 1;
-    let item_id = 5;
+    //let item_id = 5;
     db.query(`UPDATE order_items
               SET quantity = quantity - 1
               WHERE order_id = $1
               AND item_id = $2
               AND quantity > 0
-               `,[order_id, item_id])
+               `,[order_id, req.params.item_id])
       .then(data => {
       console.log('data.rows AFTER REMOVE', data.rows);
       const order_items = data.rows;

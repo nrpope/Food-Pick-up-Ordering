@@ -41,6 +41,7 @@ const widgetsRoutes = require("./routes/widgets");
 
 const databaseRoutes = require("./routes/databaseR");
 const orderItemsRoutes = require("./routes/order_items");
+const backendRoutes = require("./routes/backend_routes");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -48,6 +49,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 
 app.use("/api/categories", databaseRoutes(db));
 app.use("/api/order", orderItemsRoutes(db));
+app.use("/", backendRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
