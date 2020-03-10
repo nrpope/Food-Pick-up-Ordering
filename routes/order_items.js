@@ -50,11 +50,35 @@ module.exports = (db) => {
     //to do 3: low: if no order id works, make a new order
     //to do 1: insert order items
 
+
+
+
   });
 
 
 
-
+  router.post("/remove/:item_id", (req, res) => {
+    let order_id = 1;
+    let item_id = 5;
+    db.query(`UPDATE order_items
+              SET quantity = quantity - 1
+              WHERE order_id = $1
+              AND item_id = $2
+              AND quantity > 0
+               `,[order_id, item_id])
+      .then(data => {
+      console.log('data.rows AFTER REMOVE', data.rows);
+      const order_items = data.rows;
+      res.json({ order_items });
+      //console.log("res.json",  res.json({ users }));
+      console.log(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  });
 
 
   //console.log("router", router);
