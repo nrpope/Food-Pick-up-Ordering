@@ -19,6 +19,9 @@ module.exports = (db) => {
       });
   });
 
+
+
+
   router.post("/add/:item_id", (req, res) => {
     let order_id = 1;
     console.log('order_id is:', order_id);
@@ -49,15 +52,12 @@ module.exports = (db) => {
     //to do 2: figure out order id, use hard code
     //to do 3: low: if no order id works, make a new order
     //to do 1: insert order items
-
-
-
-
   });
 
 
 
-  router.post("/remove/:item_id", (req, res) => {
+
+    router.post("/remove/:item_id", (req, res) => {
     let order_id = 1;
     let item_id = 5;
     db.query(`UPDATE order_items
