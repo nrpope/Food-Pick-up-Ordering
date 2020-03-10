@@ -27,7 +27,7 @@ $(document).ready(function() {
             console.log("error on GET");
           }
         });
-        console.log("nothing bad happened yet");
+        console.log("Success on POST for addItem");
       },
       error: () => {
         console.log("POST to api/order/add failed");
