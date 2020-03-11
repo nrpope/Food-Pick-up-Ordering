@@ -9,7 +9,7 @@ $(document).ready(function() {
     });
   });
 
-  $(".button_cont").click(function(event) {
+  $(".example_c").click(function(event) {
     event.preventDefault();
     let item_id = 1;
     // alert("ready to add item" + item_id);
@@ -19,7 +19,7 @@ $(document).ready(function() {
       success: () => {
         $.ajax({
           method: "GET",
-          url: "/api/order",
+          url: "/br/orders",
           success: () => {
             console.log("success on GET");
           },
@@ -30,7 +30,7 @@ $(document).ready(function() {
         console.log("Success on POST for addItem");
       },
       error: () => {
-        console.log("POST to api/order/add failed");
+        console.log("POST to order/add failed");
       }
     });
   });
@@ -38,7 +38,7 @@ $(document).ready(function() {
   const loadOrders = function() {
     //loads all tweets on page
     $.ajax({
-      url: "/api/order",
+      url: "/br/orders",
       method: "GET",
       success: () => {
         console.log("loadOrders worked");

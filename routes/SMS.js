@@ -1,10 +1,9 @@
 "use strict";
+
 const express = require("express");
 const router = express.Router();
 const twilio = require("twilio");
-const accountSid = "AC77c1b54f9cfdf8c5f72f399fdbfa93e4"; // Your Account SID from www.twilio.com/console
-const authToken = "dd62dde8164edf63f0fca6659e3ac88e"; // Your Auth Token from www.twilio.com/console
-const client = new twilio(accountSid, authToken);
+const client = new twilio(process.env.TWILIO_USER, process.env.TWILIO_AUTHKEY);
 
 function textCustomer(phone, time) {
   console.log(phone);
@@ -17,3 +16,21 @@ function textCustomer(phone, time) {
     })
     .then(message => console.log(message.sid));
 }
+
+function textCustomerPickup(phone) {
+  console.log(phone);
+  client.messages
+    .create({
+      body: `Your order is now ready for pickup! Thanks for ordering from LightBistro.`,
+      to: `${phone}`,
+      from: "+13342471008" // THIS IS OUR TWILIO SERVER NUMBER
+    })
+    .then(message => console.log(message.sid));
+}
+client.messages
+  .create({
+    body: `Your order is now ready for pickup! Thanks for ordering from LightBistro.`,
+    to: `6044415470`,
+    from: "+13342471008" // THIS IS OUR TWILIO SERVER NUMBER
+  })
+  .then(message => console.log(message.sid));
