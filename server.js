@@ -61,8 +61,21 @@ app.use("/br", backendRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
-  console.log('Cookies: ', res.cookie('user_id', 1234));
+  console.log('yo!!!!!!!!!!!!!!!!!!!!!')
+  const insertString = `INSERT INTO orders(name) VALUES($1) RETURNING id`;
+  const preparedVals = ["BobTestOrder"];
+
+  db.query(insertString, preparedVals)
+    .then((_res) => {
+      const newRow = _res.rows[0];
+      const { id: orderId } = newRow;
+      console.log('New Order Id:  ', orderId);
+      res.render("index", { orderId });
+      //console.log('Cookies: ', _res.cookie('user_id', 1234));
+    })
+    .catch(e => console.error(e.stack))
+  // insert a db row in Orders table, returning order id or uuid
+
 });
 
 app.get("/checkout", (req, res) => {

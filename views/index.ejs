@@ -26,7 +26,7 @@
 
   <body>
     <header><% include ./partials/_header %></header>
-
+      <div id="order-id" data-orderid=<%= orderId %> >TESTING, your order id is: <%= orderId %></div>
       <button id="menu-category">
         <i class="fas fa-angle-double-right"></i>
       </button>
@@ -65,7 +65,7 @@
           >
         </div>
           <a class="example_c" target="_blank" rel="nofollow noopener"
-            ><p class="button_text">
+            ><p class="button_text order-item">
               Hotdog <br />$2 <br />
               Popularity: 4/5
             </p></a
