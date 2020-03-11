@@ -24,7 +24,7 @@ module.exports = (db) => {
 
   router.post("/add/:item_id", (req, res) => {
     let order_id = 1;
-    console.log('order_id is:', order_id);
+    //console.log('order_id is:', order_id);
     db.query(`INSERT INTO order_items (order_id, item_id, quantity, price) VALUES ($1, $2, 1, 100)`,
     [order_id, req.params.item_id])
 
@@ -41,10 +41,10 @@ module.exports = (db) => {
         res.json({ order_items });
       })
 
-      console.log(data);
+      //console.log(data);
     })
     .catch(err => {
-      console.log("log in catch", err);
+      //console.log("log in catch", err);
       res
         .status(500)
         .json({ error: err.message });
@@ -67,11 +67,11 @@ module.exports = (db) => {
               AND quantity > 0
                `,[order_id, req.params.item_id])
       .then(data => {
-      console.log('data.rows AFTER REMOVE', data.rows);
+      //console.log('data.rows AFTER REMOVE', data.rows);
       const order_items = data.rows;
       res.json({ order_items });
       //console.log("res.json",  res.json({ users }));
-      console.log(data);
+      //console.log(data);
     })
     .catch(err => {
       res
