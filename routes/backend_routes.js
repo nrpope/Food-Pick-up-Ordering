@@ -4,6 +4,14 @@
 
 const express = require('express');
 const router  = express.Router();
+//const cookieParser = require("cookie-parser");
+
+
+
+//router.use(cookieParser);
+
+
+
 
 
 module.exports = db => {
@@ -24,7 +32,11 @@ module.exports = db => {
   });
 
   //display all orders from orders table
+  //also get cookies
   router.get("/", (req, res) => {
+
+  //console.log('Cookies: ', req.cookies)
+
     db.query(`SELECT *
               FROM orders`)
       .then(data => {
