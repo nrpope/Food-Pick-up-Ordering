@@ -125,13 +125,11 @@ header .admin-btn {
 }
 
 .order_list {
-  border: solid 2px;
-  display: flex;
-  flex-direction: row;
   background-image: url("../img/styleguide_paper.png");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   width: max-content;
+  max-width: 55%;
 }
 
 .example_c .button_text {
