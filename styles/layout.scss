@@ -67,6 +67,16 @@ header .admin-btn {
   justify-content: space-evenly;
 }
 
+#hotdog {
+  background-image: url("../img/hotdogs.png");
+}
+#soda {
+  background-image: url("../img/soda.png");
+}
+#fries {
+  background-image: url("../img/fries.png");
+}
+
 .example_c {
   color: #494949 !important;
   text-transform: uppercase;
@@ -75,7 +85,6 @@ header .admin-btn {
   border: 4px solid #494949 !important;
   display: inline-block;
   transition: all 0.4s ease 0s;
-  background-image: url("../img/hotdogs.png");
   background-size: cover;
 }
 
@@ -85,6 +94,7 @@ header .admin-btn {
   border-color: #f6b93b !important;
   transition: all 0.4s ease 0s;
   visibility: visible;
+  background-image: none;
 }
 
 .database_test {
