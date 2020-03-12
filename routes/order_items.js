@@ -117,20 +117,17 @@ module.exports = db => {
     //let item_id = 5;
     let item_id = req.params.item_id;
     db.query(
-      `UPDATE order_items
-              SET quantity = quantity - 1
-              WHERE order_id = $1
-              AND item_id = $2
-              AND quantity > 0
-      `,
+      `DELETE FROM order_items
+        WHERE id = (SELECT id FROM order_items
+                  WHERE order_id = $1
+                  AND item_id = $2
+                  ORDER BY id desc LIMIT 1)`,
       [order_id, item_id]
     )
       .then(data => {
-        //console.log('data.rows AFTER REMOVE', data.rows);
         const order_items = data.rows;
         res.json({ order_items });
-        //console.log("res.json",  res.json({ users }));
-        //console.log(data);
+
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
