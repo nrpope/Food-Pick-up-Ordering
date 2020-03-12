@@ -24,6 +24,7 @@ header {
   -moz-box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
   box-shadow: 3px 6px 14px -5px rgba(222, 191, 191, 0.15);
   background-image: url("../img/header.png");
+  background-size: cover;
   background-size: 100%;
 }
 
@@ -40,7 +41,7 @@ header .admin-btn {
   padding: 15px 30px 15px 30px;
 }
 
-.menu-category {
+#menu-category {
   background: none;
   border: none;
   outline: none;
@@ -50,6 +51,20 @@ header .admin-btn {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+  inline-size: -webkit-fill-available;
+  font-size: -webkit-xxx-large;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 8px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
 }
 
 .menu {
@@ -69,12 +84,25 @@ header .admin-btn {
 
 #hotdog {
   background-image: url("../img/hotdogs.png");
+  background-size: cover;
 }
 #soda {
   background-image: url("../img/soda.png");
+  background-size: cover;
 }
 #fries {
   background-image: url("../img/fries.png");
+  background-size: cover;
+}
+
+#hotdog:hover {
+  background-image: none;
+}
+#soda:hover {
+  background-image: none;
+}
+#fries:hover {
+  background-image: none;
 }
 
 .example_c {
@@ -85,10 +113,10 @@ header .admin-btn {
   border: 4px solid #494949 !important;
   display: inline-block;
   transition: all 0.4s ease 0s;
-  background-size: cover;
+  height: auto;
 }
 
-.example_c:hover {
+.menu .example_c:hover {
   color: #ffffff !important;
   background: #f6b93b;
   border-color: #f6b93b !important;

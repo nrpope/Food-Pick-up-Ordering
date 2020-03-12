@@ -6,6 +6,7 @@ $(document).ready(function() {
     // toggles the compose tweet container
     $("#menu-category").click(function() {
       $(".menu").toggle("slide");
+      $(".fas").hide("slide");
     });
   });
 
