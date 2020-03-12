@@ -10,12 +10,13 @@ module.exports = db => {
 // example: http://localhost:8080/br
 
   router.get("/", (req, res) => {
-    res.json({ test: "TEST" });
-  });
+    res.json({ test: "TEST"
+  })
+});
 
 
   //add orders to orders table to be submitted
-  // example: http://localhost:8080/br/add/orders
+  // example: http://localhost:8080/br/orders
   router.post("/orders", (req, res) => {
     let order_id = 10;
     let name = 'John Smith';
