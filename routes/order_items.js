@@ -37,13 +37,12 @@ module.exports = db => {
 
     // order_items table: id |  name   | order_id | item_id | quantity | price
     // const insertStr = `INSERT INTO order_items (order_id, item_id, quantity, price) VALUES ($1, $2, 1, 100)`,
-    const qStrItem = `select price from items where items.id = ($1)`;
+    const qStrItem = `select price from items where items.id = 4`;
     const itemVals = [item_id];
 
-    db.query(qStrItem, itemVals)
+    db.query(qStrItem)
       // { rows: [...] }
       .then(({ rows: item }) => {
-        console.log("res.rows!!!!!", item[0].price);
         const price = item[0].price;
 
         const newOrderItemQry = `INSERT INTO order_items (order_id, item_id, quantity, price) VALUES ($1, $2, $3, $4) returning id`;
@@ -91,7 +90,7 @@ module.exports = db => {
               WHERE order_id = $1
               AND item_id = $2
               AND quantity > 0
-               `,
+      `,
       [order_id, req.params.item_id]
     )
       .then(data => {

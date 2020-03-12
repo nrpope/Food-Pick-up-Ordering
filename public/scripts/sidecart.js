@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   $(".example_c").click(function(event) {
     event.preventDefault();
-    let item_id = 1;
+    let item_id = 4;
     // alert("ready to add item" + item_id);
     $.ajax({
       method: "POST",
