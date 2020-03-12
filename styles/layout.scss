@@ -74,7 +74,6 @@ header .admin-btn {
   width: fit-content;
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.541);
-  padding: 1.5em;
   top: 0em;
   position: sticky;
   display: flex;
@@ -125,10 +124,14 @@ header .admin-btn {
   background-image: none;
 }
 
-.database_test {
+.order_list {
   border: solid 2px;
   display: flex;
   flex-direction: row;
+  background-image: url("../img/styleguide_paper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: max-content;
 }
 
 .example_c .button_text {
@@ -137,27 +140,6 @@ header .admin-btn {
 
 .example_c:hover .button_text {
   visibility: visible;
-}
-
-.example_a {
-  color: #fff !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: #ed3330;
-  padding: 20px;
-  border-radius: 5px;
-  display: inline-block;
-  border: none;
-  transition: all 0.4s ease 0s;
-}
-
-.example_a:hover {
-  background: #434343;
-  letter-spacing: 1px;
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
-  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
-  transition: all 0.4s ease 0s;
 }
 
 .processing {
@@ -170,4 +152,24 @@ header .admin-btn {
   border: solid 3px;
   border-radius: 5px;
   width: fit-content;
+}
+
+.weirdFlex {
+  display: flex;
+}
+// breakpoints
+
+@media only screen and (min-width: 1024px) {
+  .weirdFlex {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+  }
+  header {
+    flex: 0;
+  }
+  .order_list {
+    flex: 1;
+  }
 }
