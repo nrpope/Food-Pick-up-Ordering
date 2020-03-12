@@ -36,8 +36,10 @@ function textRestaurant(phone, time) {
       body: `A new order has been placed
       ${order}
       please respond with how long in minutes this will take.`,
-      to: `#`, // NUMBER WE WANT TO TEXT
+      to: `6044415470`, // NUMBER WE WANT TO TEXT
       from: "+13342471008" // THIS IS OUR TWILIO SERVER NUMBER
     })
     .then(message => console.log(message.sid));
 }
+
+module.exports(textCustomer, textRestaurant);
