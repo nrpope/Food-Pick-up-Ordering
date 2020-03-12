@@ -7,6 +7,7 @@ $(document).ready(function() {
     $("#menu-category").click(function() {
       $(".menu").toggle("slide");
       $(".fas").hide("slide");
+      $(".cno").hide("slide");
     });
   });
 
