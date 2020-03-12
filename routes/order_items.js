@@ -4,6 +4,9 @@ const router = express.Router();
 module.exports = db => {
   let order_id = 10;
 
+
+  //example : http://localhost:8080/api/order
+
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM order_items;`)
       .then(data => {
@@ -111,6 +114,8 @@ module.exports = db => {
   //       });
   //     });
   });
+
+  // example: http://localhost:8080/api/order/remove/5
 
   router.post("/remove/:item_id", (req, res) => {
 
