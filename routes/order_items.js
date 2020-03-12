@@ -19,7 +19,7 @@ module.exports = (db) => {
       });
   });
 
-
+//
   router.post("/add/:item_id", (req, res) => {
     // req from server looks like this:
     //req.params { item_id: '2' }
@@ -90,14 +90,21 @@ module.exports = (db) => {
 
 
     router.post("/remove/:item_id", (req, res) => {
-    let order_id = 1;
+
+    console.log('req.params', req.params);
+    console.log('req.body', req.body);
+    console.log('all of req!!!!!!!!!!!!!!!', req);
+    //console.log('all of res!!!!!!!!!!!!!!!!!!!', res);
+    const { order_id } = req.body;
+    const { item_id } = req.params;
+
     //let item_id = 5;
     db.query(`UPDATE order_items
               SET quantity = quantity - 1
               WHERE order_id = $1
               AND item_id = $2
               AND quantity > 0
-               `,[order_id, req.params.item_id])
+               `,[order_id, item_id])
       .then(data => {
       //console.log('data.rows AFTER REMOVE', data.rows);
       const order_items = data.rows;
