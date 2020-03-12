@@ -27,10 +27,17 @@ function textCustomerPickup(phone) {
     })
     .then(message => console.log(message.sid));
 }
-client.messages
-  .create({
-    body: `Your order is now ready for pickup! Thanks for ordering from LightBistro.`,
-    to: `6044415470`,
-    from: "+13342471008" // THIS IS OUR TWILIO SERVER NUMBER
-  })
-  .then(message => console.log(message.sid));
+
+function textRestaurant(phone, time) {
+  console.log(phone);
+
+  client.messages
+    .create({
+      body: `A new order has been placed
+      ${order}
+      please respond with how long in minutes this will take.`,
+      to: `#`, // NUMBER WE WANT TO TEXT
+      from: "+13342471008" // THIS IS OUR TWILIO SERVER NUMBER
+    })
+    .then(message => console.log(message.sid));
+}
