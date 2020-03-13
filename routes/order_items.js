@@ -35,11 +35,21 @@ module.exports = db => {
 
   router.post("/add/:item_id", (req, res) => {
     //let order_id = 10;
-    let item_id = req.params.item_id;
+    let item_id = Number(req.params.item_id);
     console.log('req.body !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',req.body)
+    let item_Price = 0
+    if(item_id === 1){
+      item_Price = 200;
+    } else if(item_id === 2){
+      item_Price = 100;
+    } else {
+      item_Price = 50;
+    }
+
+
 
     db.query(`INSERT INTO order_items (order_id, item_id, quantity, price)
-    VALUES ($1, $2, 1, 200)`,[order_id, item_id])
+    VALUES ($1, $2, 1, $3)`,[order_id, item_id, item_Price])
 
     .then(data => {
 

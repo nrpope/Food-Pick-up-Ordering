@@ -51,6 +51,7 @@ $(document).ready(function() {
           url: "/br", //"/br/orders"
           success: () => {
             console.log("success on GET");
+            loadItems();
           },
           error: () => {
             console.log("error on GET");
@@ -77,6 +78,7 @@ $(document).ready(function() {
           url: "/br", //"/br/orders"
           success: () => {
             console.log("success on GET");
+            loadItems();
 
           },
           error: () => {
