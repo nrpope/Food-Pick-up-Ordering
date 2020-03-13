@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const textRestaurant = require("../lib/SMS");
+const textRestaurant = require("../lib/SMS.js");
 
 module.exports = db => {
-  router.get("/", (req, res) => {
+  router.get("/br", (req, res) => {
     db.query(`SELECT * FROM order_items;`)
       .then(data => {
         textRestaurant();
