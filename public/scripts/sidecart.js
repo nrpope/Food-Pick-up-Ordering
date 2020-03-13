@@ -146,29 +146,28 @@ $(document).ready(function() {
     });
   });
 
-  const loadOrders = function() {
-    //loads orders on page
-    $.ajax({
-      url: "/br/orders",
-      method: "GET",
-      success: () => {
-        console.log("loadOrders worked");
-      },
-      error: () => {
-        console.log("loadOrders failed");
-      }
-    });
-  };
+  // const loadOrders = function() {
+  //   //loads orders on page
+  //   $.ajax({
+  //     url: "/br/orders",
+  //     method: "GET",
+  //     success: () => {
+  //       console.log("loadOrders worked");
+  //     },
+  //     error: () => {
+  //       console.log("loadOrders failed");
+  //     }
+  //   });
+  // };
 
-  const newOrderForm = function(newOrder) {
-    //dynamic submission form
-    let $newOrder = $(`
-      <article class="order_tally">
-      <p class=${newOrder.orders.id}</p>
-      </article>
-    `).addClass("order_tally");
-    console.log("new order form");
-    return $newOrder;
-  };
-  loadOrders();
+  // const newOrderForm = function(newOrder) {
+  //   //dynamic submission form
+  //   let $newOrder = $(`
+  //     <article class="order_tally">
+  //     <p class=${newOrder.orders.id}</p>
+  //     </article>
+  //   `).addClass("order_tally");
+  //   console.log("new order form");
+  //   return $newOrder;
+  // };
 });
