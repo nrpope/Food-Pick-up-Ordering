@@ -6,7 +6,7 @@ $(() => {
     for (user of users.users) {
       $("<div>")
         .text(user.name)
-        .appendTo($("body"));
+        .appendTo($(".order_list"));
     }
   });
 });
@@ -20,54 +20,51 @@ $(() => {
     for (category of categories.categories) {
       $("<div>")
         .text(category.name)
-        .appendTo($("body"));
+        .appendTo($(".order_list"));
     }
   });
 
-// const renderOrderItem = function(orderItem){
-//   const id = 1;
-//   const name = "hot doggu";
-//   const order_id = 10;
-//   const quantity = 1;
-//   const price = 200;
-//   const $item = `
-//       <p>
-//         id: ${id} <br>
-//         name: ${name} <br>
-//         order_id: ${order_id} <br>
-//         quantity: ${quantity} <br>
-//         price: ${quantity * price} <br>
-//       </p>
-//   `
-//   return $item;
-// }
+  // const renderOrderItem = function(orderItem){
+  //   const id = 1;
+  //   const name = "hot doggu";
+  //   const order_id = 10;
+  //   const quantity = 1;
+  //   const price = 200;
+  //   const $item = `
+  //       <p>
+  //         id: ${id} <br>
+  //         name: ${name} <br>
+  //         order_id: ${order_id} <br>
+  //         quantity: ${quantity} <br>
+  //         price: ${quantity * price} <br>
+  //       </p>
+  //   `
+  //   return $item;
+  // }
 
-// const renderItems = function (items) {
-//   console.log("renderitem", items);
+  // const renderItems = function (items) {
+  //   console.log("renderitem", items);
 
-//   // loops through tweets
-//   // calls createTweetElement for each tweet
-//   // takes return value and appends it to the tweets container
-//   for (let i = 0; i < items.order_items.length; i++) {
-//     console.log(items);
+  //   // loops through tweets
+  //   // calls createTweetElement for each tweet
+  //   // takes return value and appends it to the tweets container
+  //   for (let i = 0; i < items.order_items.length; i++) {
+  //     console.log(items);
 
-//     let $item = renderOrderItem(items[i]);
-//     $("#orderItemsList").prepend($item);
-//   }
+  //     let $item = renderOrderItem(items[i]);
+  //     $("#orderItemsList").prepend($item);
+  //   }
 
-// }
+  // }
 
-// const loadItems = function () {
-//   $.get("/api/order", function (data) {
-//     renderItems(data);
-//     //console.log(data);
-//   });
-// }
-// loadItems()
-
+  // const loadItems = function () {
+  //   $.get("/api/order", function (data) {
+  //     renderItems(data);
+  //     //console.log(data);
+  //   });
+  // }
+  // loadItems()
 });
-
-
 
 // $(() => {
 //   const orderId = $("#order-id").data("orderid");

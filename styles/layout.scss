@@ -80,7 +80,7 @@ header .admin-btn {
   justify-content: space-evenly;
   width: -webkit-fill-available;
   height: -webkit-fill-available;
-  max-width: 75%;
+  max-width: 50%;
 }
 
 #hotdog {
@@ -129,6 +129,7 @@ header .admin-btn {
   display: inline-block;
   transition: all 0.4s ease 0s;
   height: auto;
+  min-height: 20em;
 }
 
 .menu .example_c:hover {
@@ -146,6 +147,7 @@ header .admin-btn {
   background-repeat: no-repeat;
   width: -webkit-fill-available;
   max-width: 55%;
+  min-height: 60em;
 }
 
 .example_c .button_text {

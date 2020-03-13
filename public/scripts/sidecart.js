@@ -209,11 +209,11 @@ $(document).ready(function() {
     }
   };
 
-  const loadItems = function() {
-    $.get("/api/order", function(data) {
-      renderItems(data);
-      //console.log(data);
-    });
-  };
-  loadItems();
+  // const loadItems = function() {
+  //   $.get("/api/order", function(data) {
+  //     renderItems(data);
+  //     //console.log(data);
+  //   });
+  // };
+  // loadItems();
 });
