@@ -141,6 +141,8 @@ $(document).ready(function() {
   const renderItems = function (items) {
     console.log("renderitem", items);
     const itemArray = items.order_items
+
+    $("#orderItemsList").empty();
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -150,7 +152,6 @@ $(document).ready(function() {
       let $item = renderOrderItem(itemArray[i]);
       $("#orderItemsList").prepend($item);
     }
-
   }
 
   const loadItems = function () {
