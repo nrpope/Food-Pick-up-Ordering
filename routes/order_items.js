@@ -3,13 +3,13 @@ const router = express.Router();
 
 
 module.exports = db => {
-  let order_id = 10;
+  let order_id = 1;
 
 
   //example : http://localhost:8080/api/order
 
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM order_items;`)
+    db.query(`SELECT * FROM order_items ORDER BY id;`)
       .then(data => {
         //console.log('data.rows', data.rows);
         const order_items = data.rows;

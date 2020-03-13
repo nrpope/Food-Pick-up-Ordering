@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   $("#hotdog").click(function(event) {
     event.preventDefault();
-    let item_id = 3;
+    let item_id = 1;
     // alert("ready to add item" + item_id);
     $.ajax({
       method: "POST",
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
   $("#soda").click(function(event) {
     event.preventDefault();
-    let item_id = 5;
+    let item_id = 3;
     // alert("ready to add item" + item_id);
     $.ajax({
       method: "POST",
@@ -66,7 +66,7 @@ $(document).ready(function() {
 
   $("#fries").click(function(event) {
     event.preventDefault();
-    let item_id = 4;
+    let item_id = 2;
     // alert("ready to add item" + item_id);
     $.ajax({
       method: "POST",
@@ -121,7 +121,7 @@ $(document).ready(function() {
 
 
   const renderOrderItem = function(orderItem){
-    console.log('order item?????????????????????????????', orderItem)
+    // console.log('order item?????????????????????????????', orderItem)
     const id = orderItem.id;
     const name = orderItem.name;
     const order_id = orderItem.order_id;
