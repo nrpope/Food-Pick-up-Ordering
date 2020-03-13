@@ -6,7 +6,7 @@ $(document).ready(function() {
     console.log("Sup");
     const orderId = $("#order-id").data("orderid");
     $.ajax({
-      url: `api/order/${orderId}`,
+      url: `api/orders`,
       method: "GET",
       success: resp => {
         console.log("Item count:", resp.data.length);
