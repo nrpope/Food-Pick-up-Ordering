@@ -10,7 +10,18 @@ module.exports = db => {
 // example: http://localhost:8080/br
 
   router.get("/", (req, res) => {
-    res.json({ test: "TEST"
+
+    db.query(`SELECT *
+              FROM orders
+              ORDER BY id DESC`)
+      .then(data => {
+        const orders = data.rows;
+        res.json({ orders });
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+
+
   })
 });
 
@@ -18,6 +29,7 @@ module.exports = db => {
   //add orders to orders table to be submitted
   // example: http://localhost:8080/br/orders
   router.post("/orders", (req, res) => {
+    //console.log('req.body!!!!!!!!!!!!!!!!!!!!!!!!!!!!', req)
     let order_id = 10;
     let name = 'John Smith';
     db.query(`select count(*) AS numItems, sum(order_items.price*order_items.quantity) AS totalPrice, sum(time_to_complete) AS totalTime FROM order_items JOIN items ON item_id = items.id WHERE order_id = $1 AND quantity > 0`
@@ -31,11 +43,12 @@ module.exports = db => {
         // console.log('this is data!!!!!!', data.rows[0].totalprice);
         // console.log('this is data!!!!!!', data.rows[0].totaltime);
         //'2020-03-10 18:10:10'
-        db.query(  `INSERT INTO orders (name, total_price, start_time, end_time, number_of_items, completed) VALUES ($1, $2, NOW(), NOW() + '${totaltime} minute'::interval, $3, false)`, [name, totalprice, numitems])
+        db.query(  `INSERT INTO orders (name, total_price, start_time, end_time, number_of_items, completed) VALUES ($1, $2, NOW(), NOW() + '${totaltime} minute'::interval, $3, false) RETURNING *`, [name, totalprice, numitems])
 
           .then(data => {
             const orders = data.rows;
             res.json({ orders });
+            res.send(data);
           })
       })
       .catch(err => {

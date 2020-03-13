@@ -1,4 +1,4 @@
-const textCustomer = require("../../routes/SMS");
+// const textCustomer = require("../../routes/SMS");
 
 $(document).ready(function() {
   $("#showCartBtn").click(function() {
@@ -10,11 +10,19 @@ $(document).ready(function() {
       method: "GET",
       success: resp => {
         console.log("Item count:", resp.data.length);
-        textCustomer();
+        // textCustomer();
       },
       error: () => {
         console.log("showOrders failed");
       }
     });
+
+    $.ajax({
+      url: `/br/orders`,
+      method: "POST",
+      data: {}
+    })
   });
 });
+
+

@@ -36,6 +36,7 @@ module.exports = db => {
   router.post("/add/:item_id", (req, res) => {
     //let order_id = 10;
     let item_id = req.params.item_id;
+    console.log('req.body !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!',req.body)
 
     db.query(`INSERT INTO order_items (order_id, item_id, quantity, price)
     VALUES ($1, $2, 1, 200)`,[order_id, item_id])
