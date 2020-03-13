@@ -10,7 +10,6 @@
 
     <!-- internal js -->
     <script type="text/javascript" src="/scripts/sidecart.js"></script>
-
     <title>LightBistro</title>
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -26,8 +25,8 @@
   <body>
     <header><% include ./partials/_header %></header>
       <div id="order-id" data-orderid=<%= orderId %> >TESTING, your order id is: <%= orderId %></div>
-      <button id="menu-category"><section>Create New Order</section>
-        <i class="fas fa-angle-double-down"></i>
+      <button id="menu-category">
+        <i class="fas fa-angle-double-down"></i><section>Menu</section>
       </button>
       <main class="weirdFlex">
       <div class="menu">
@@ -47,15 +46,22 @@
       Popularity: 5/5
     </p></a
   >
+  <a id="chips" class="example_c" target="_blank" rel="nofollow noopener"
+  ><p class="button_text order-item">
+    Prongles <br />$3.50 <br />
+    Popularity: 9/5
+  </p></a
+>
+<a id="cookies" class="example_c" target="_blank" rel="nofollow noopener"
+><p class="button_text order-item">
+  "Cookies" <br />$4.20 <br />
+  Popularity: 0/5
+</p></a
+>
         </div>
 
     </section></div>
-    <section id="orderItemsList" class="order_list">
-      Order_list
-      <p>
-        Name: <br />
-        Quantity: <br />Price: (num x price )
-      </p>
+    <section class="order_list">
     </section>
   </main>
   </body>

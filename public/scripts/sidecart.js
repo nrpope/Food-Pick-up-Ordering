@@ -1,17 +1,18 @@
 $(document).ready(function() {
   $(function() {
-    // hide tweet box on page load
     $(".menu").hide();
+    $(".order_list").hide();
+    // $(".weirdFlex").hide();
 
     // toggles the compose tweet container
     $("#menu-category").click(function() {
-      $(".menu").toggle("slide");
-      $(".fas").hide("slide");
-      $(".cno").hide("slide");
+      $(".menu").show("slide");
+      $("#menu-category").hide();
     });
   });
 
   $("#hotdog").click(function(event) {
+    $(".order_list").show("slide");
     event.preventDefault();
     let item_id = 1;
     // alert("ready to add item" + item_id);
@@ -39,6 +40,7 @@ $(document).ready(function() {
   });
 
   $("#soda").click(function(event) {
+    $(".order_list").show("slide");
     event.preventDefault();
     let item_id = 3;
     // alert("ready to add item" + item_id);
@@ -66,6 +68,7 @@ $(document).ready(function() {
   });
 
   $("#fries").click(function(event) {
+    $(".order_list").show("slide");
     event.preventDefault();
     let item_id = 2;
     // alert("ready to add item" + item_id);
@@ -79,7 +82,6 @@ $(document).ready(function() {
           success: () => {
             console.log("success on GET");
             loadItems();
-
           },
           error: () => {
             console.log("error on GET");
@@ -93,19 +95,73 @@ $(document).ready(function() {
     });
   });
 
-  const loadOrders = function() {
-    //loads all tweets on page
+  $("#chips").click(function(event) {
+    $(".order_list").show("slide");
+    event.preventDefault();
+    let item_id = 4;
+    // alert("ready to add item" + item_id);
+    $.ajax({
+      method: "POST",
+      url: `/api/order/add/${item_id}`,
+      success: () => {
+        $.ajax({
+          method: "GET",
+          url: "/br/orders",
+          success: () => {
+            console.log("success on GET");
+          },
+          error: () => {
+            console.log("error on GET");
+          }
+        });
+        console.log("Success on POST for addItem");
+      },
+      error: () => {
+        console.log("POST to order/add failed");
+      }
+    });
+  });
+
+  $("#cookies").click(function(event) {
+    $(".order_list").show("slide");
+    event.preventDefault();
+    let item_id = 4;
+    // alert("ready to add item" + item_id);
     $.ajax({
       url: "/br", //"/br/orders"
       method: "GET",
       success: () => {
-        console.log("loadOrders worked");
+        $.ajax({
+          method: "GET",
+          url: "/br/orders",
+          success: () => {
+            console.log("success on GET");
+          },
+          error: () => {
+            console.log("error on GET");
+          }
+        });
+        console.log("Success on POST for addItem");
       },
       error: () => {
-        console.log("loadOrders failed");
+        console.log("POST to order/add failed");
       }
     });
-  };
+  });
+
+  // const loadOrders = function() {
+  //   //loads orders on page
+  //   $.ajax({
+  //     url: "/br/orders",
+  //     method: "GET",
+  //     success: () => {
+  //       console.log("loadOrders worked");
+  //     },
+  //     error: () => {
+  //       console.log("loadOrders failed");
+  //     }
+  //   });
+  // };
 
   const newOrderForm = function(newOrder) {
     //dynamic submission form
@@ -119,10 +175,7 @@ $(document).ready(function() {
   };
   loadOrders();
 
-
-
-
-  const renderOrderItem = function(orderItem){
+  const renderOrderItem = function(orderItem) {
     // console.log('order item?????????????????????????????', orderItem)
     const id = orderItem.id;
     const name = orderItem.name;
@@ -136,13 +189,13 @@ $(document).ready(function() {
           quantity: ${quantity} <br>
           price: ${quantity * price} <br>
         </p>
-    `
+    `;
     return $item;
-  }
+  };
 
-  const renderItems = function (items) {
+  const renderItems = function(items) {
     console.log("renderitem", items);
-    const itemArray = items.order_items
+    const itemArray = items.order_items;
 
     $("#orderItemsList").empty();
     // loops through tweets
@@ -154,17 +207,13 @@ $(document).ready(function() {
       let $item = renderOrderItem(itemArray[i]);
       $("#orderItemsList").prepend($item);
     }
-  }
+  };
 
-  const loadItems = function () {
-    $.get("/api/order", function (data) {
+  const loadItems = function() {
+    $.get("/api/order", function(data) {
       renderItems(data);
       //console.log(data);
     });
-  }
-  loadItems()
-
-
-
-
+  };
+  loadItems();
 });

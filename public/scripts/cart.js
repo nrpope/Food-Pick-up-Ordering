@@ -21,8 +21,6 @@ $(document).ready(function() {
       url: `/br/orders`,
       method: "POST",
       data: {}
-    })
+    });
   });
 });
-
-

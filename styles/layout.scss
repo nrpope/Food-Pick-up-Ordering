@@ -51,7 +51,6 @@ header .admin-btn {
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  inline-size: -webkit-fill-available;
   font-size: -webkit-xxx-large;
 }
 
@@ -79,6 +78,9 @@ header .admin-btn {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  max-width: 75%;
 }
 
 #hotdog {
@@ -93,6 +95,14 @@ header .admin-btn {
   background-image: url("../img/fries.png");
   background-size: cover;
 }
+#cookies {
+  background-image: url("../img/cookies.png");
+  background-size: cover;
+}
+#chips {
+  background-image: url("../img/prongles.png");
+  background-size: cover;
+}
 
 #hotdog:hover {
   background-image: none;
@@ -101,6 +111,12 @@ header .admin-btn {
   background-image: none;
 }
 #fries:hover {
+  background-image: none;
+}
+#chips:hover {
+  background-image: none;
+}
+#cookies:hover {
   background-image: none;
 }
 
@@ -128,7 +144,7 @@ header .admin-btn {
   background-image: url("../img/styleguide_paper.png");
   background-size: contain;
   background-repeat: no-repeat;
-  width: max-content;
+  width: -webkit-fill-available;
   max-width: 55%;
 }
 
@@ -163,6 +179,7 @@ header .admin-btn {
     display: flex;
     flex-direction: row;
     margin-top: 0;
+    height: -webkit-fill-available;
   }
   header {
     flex: 0;
