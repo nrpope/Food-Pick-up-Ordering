@@ -4,12 +4,11 @@ $(document).ready(function() {
   $("#showCartBtn").click(function() {
     event.preventDefault();
     console.log("Sup");
-    const orderId = $("#order-id").data("orderid");
     $.ajax({
-      url: `api/orders`,
+      url: `/br`,
       method: "GET",
       success: resp => {
-        console.log("Item count:", resp.data.length);
+        console.log("Item count:");
         // textCustomer();
       },
       error: () => {
